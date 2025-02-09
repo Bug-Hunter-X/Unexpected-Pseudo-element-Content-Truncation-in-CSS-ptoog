@@ -1,0 +1,15 @@
+The following CSS code snippet demonstrates an unusual issue where a pseudo-element's content is unexpectedly truncated due to a combination of `word-break: break-all;` and `overflow: hidden;` applied to a parent element. This might not be a widely known problem and can manifest in different ways based on browser behavior and text length.
+
+```css
+.container {
+  width: 100px;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.container::before {
+  content: "This is a very long string that might get truncated unexpectedly.";
+}
+```
+
+This is a complex situation because `word-break: break-all;` usually handles long words, but when combined with `overflow: hidden;` on the parent, it can lead to unexpected truncation within the pseudo-element content.
