@@ -1,0 +1,17 @@
+The solution involves replacing the `overflow: hidden;` property with `text-overflow: ellipsis;` which handles text overflow by adding an ellipsis (...) at the end.  This maintains the visual integrity while preventing the unexpected truncation issue. The following modified CSS demonstrates a better approach:
+
+```css
+.container {
+  width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+}
+
+.container::before {
+  content: "This is a very long string that might get truncated unexpectedly.";
+}
+```
+
+By setting `white-space: nowrap;`, we ensure that the text doesn't wrap and the `text-overflow: ellipsis;` works correctly.
